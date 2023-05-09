@@ -17,7 +17,7 @@ const cdtoday     = 'cd $(date "+%Y-%m-%d")'
 
 const todayd      = 'mkdir $(date "+%Y-%m-%d")'
 const vsc         = 'mkdir .vscode && touch .vscode/settings.json'
-const workflow    = 'mkdir -p .github/workflows && touch .github/workflows/main.yml'
+const workflows   = 'mkdir -p .github/workflows && touch .github/workflows/main.yml'
 
 const readme      = 'touch README.md'
 const makefile    = 'touch Makefile'
