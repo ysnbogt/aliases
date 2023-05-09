@@ -20,7 +20,7 @@ const vsc         = 'mkdir .vscode && touch .vscode/settings.json'
 
 const readme      = 'touch README.md'
 const makefile    = 'touch Makefile'
-const workflow    = 'touch .github/workflows/main.yml'
+const workflow    = 'mkdir -p .github/workflows && touch .github/workflows/main.yml'
 
 const stop-all    = 'docker stop $(docker ps -q)'
 const rm-all      = 'docker rm $(docker ps -a -q)'
