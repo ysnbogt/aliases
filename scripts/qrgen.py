@@ -59,7 +59,7 @@ def generate_qr_code(
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: genqr.py <text> [version] [level]")
+        print("Usage: qrgen.py <text> [version] [level]")
         sys.exit(1)
 
     text = sys.argv[1]
