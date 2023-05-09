@@ -213,3 +213,20 @@ today() {
 
     date "+%Y${delimiter}%m${delimiter}%d"
 }
+
+qrgen() {
+    # Generate a QR code and display it in the console.
+
+    # ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────────────╮
+    # ├───────────────────────────────────────────────────────────────────────────────────────────┤
+    # │ $ pip3 install qrcode                                                                     │
+    # │ $ qrgen <text> [version] [level]                                                          │
+    # │ $ qrgen https://github.com/ysnbogt 1 low                                                  │
+    # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
+    # Version: 1-40
+    # Level  : low, medium, quartile, high
+
+    # WARNING: Change the path to the script.
+    python3 /path/to/scripts/qrgen.py $1 $2 $3
+}
