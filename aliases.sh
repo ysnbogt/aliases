@@ -10,35 +10,62 @@ lorem_ipsum='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu
  voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 
+# ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+# ░▒▓│ single letter     │▓▒░
+# ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 const c           = 'code .'
 const o           = 'open .'
 const p           = 'pbcopy'
 
+# ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+# ░▒▓│ cd                │▓▒░
+# ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 const cdd         = 'cd ~/Desktop'
 const cdtoday     = 'cd $(date "+%Y-%m-%d")'
 
+# ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+# ░▒▓│ mkdir             │▓▒░
+# ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 const todayd      = 'mkdir $(date "+%Y-%m-%d")'
 const vsc         = 'mkdir .vscode && touch .vscode/settings.json'
 const workflows   = 'mkdir -p .github/workflows && touch .github/workflows/main.yml'
 
+# ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+# ░▒▓│ touch             │▓▒░
+# ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 const readme      = 'touch README.md'
 const makefile    = 'touch Makefile'
 
+# ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+# ░▒▓│ docker            │▓▒░
+# ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 const stop-all    = 'docker stop $(docker ps -q)'
 const rm-all      = 'docker rm $(docker ps -a -q)'
 const rmi-all     = 'docker rmi $(docker images -q)'
 
+# ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+# ░▒▓│ echo              │▓▒░
+# ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 const pangram     = 'echo "The quick brown fox jumps over the lazy dog" | pbcopy'
 const lorem-ipsum = "echo '$lorem_ipsum' | pbcopy"
 
+# ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+# ░▒▓│ cat               │▓▒░
+# ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 const vsc-black   = "cat $DIR/templates/vscode/black.json | pbcopy"
 
+# ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+# ░▒▓│ countdown         │▓▒░
+# ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 const 1m          = 'countdown 60 3'
 const 2m          = 'countdown 120 3'
 const 3m          = 'countdown 180 3'
 const 5m          = 'countdown 300 3'
 const 10m         = 'countdown 600 3'
 
+# ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+# ░▒▓│ open              │▓▒░
+# ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 const 8080        = 'open http://localhost:8080'
 const 3000        = 'open http://localhost:3000'
 const 5173        = 'open http://localhost:5173'
