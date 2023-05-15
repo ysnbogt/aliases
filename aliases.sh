@@ -230,3 +230,56 @@ qrgen() {
     # WARNING: Change the path to the script.
     python3 /path/to/scripts/qrgen.py $1 $2 $3
 }
+
+f() {
+    # Format the code and display it in the console.
+
+    # ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────────────╮
+    # ├───────────────────────────────────────────────────────────────────────────────────────────┤
+    # │ $ f <file-extension> <code>                                                               │
+    # │ $ f ts 'console.log(1+2)'                                                                 │
+    # │ ╭─ TypeScript ──────────────────────────────────────────────────────────────────────────╮ │
+    # │ ├───────────────────────────────────────────────────────────────────────────────────────┤ │
+    # │ │ console.log(1 + 2);                                                                   │ │
+    # │ ╰───────────────────────────────────────────────────────────────────────────────────────╯ │
+    # │ $ f py 'def hello(): print("Hello, world!")'                                              │
+    # │ ╭─ Python ──────────────────────────────────────────────────────────────────────────────╮ │
+    # │ ├───────────────────────────────────────────────────────────────────────────────────────┤ │
+    # │ │ def hello():                                                                          │ │
+    # │ │     print("Hello, world!")                                                            │ │
+    # │ ╰───────────────────────────────────────────────────────────────────────────────────────╯ │
+    # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
+    if [ $# -ne 2 ]; then
+        echo "Usage: f <file extension> <code>"
+        return 1
+    fi
+
+    extension=$1
+    code=$2
+
+    tmpfile=$(mktemp tmp.$(uuidgen).${extension})
+
+    echo "$code" > $tmpfile
+
+    # TODO: Add any extensions and commands you like.
+    case $extension in
+        "ts")
+            npx prettier --loglevel silent --write $tmpfile
+            ;;
+        "js")
+            npx prettier --loglevel silent --write $tmpfile
+            ;;
+        "py")
+            black -q $tmpfile
+            ;;
+        *)
+            echo "Unsupported file extension: .$extension"
+            rm $tmpfile
+            return 1
+            ;;
+    esac
+
+    cat $tmpfile
+    rm $tmpfile
+}
