@@ -2,6 +2,8 @@ const() {
     eval "alias $1=\$3"
 }
 
+DIR="$(dirname "$(readlink -f "$0")")"
+
 lorem_ipsum='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
  ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
@@ -28,6 +30,8 @@ const rmi-all     = 'docker rmi $(docker images -q)'
 
 const pangram     = 'echo "The quick brown fox jumps over the lazy dog" | pbcopy'
 const lorem-ipsum = "echo '$lorem_ipsum' | pbcopy"
+
+const vsc-black   = "cat $DIR/templates/vscode/black.json | pbcopy"
 
 const 1m          = 'countdown 60 3'
 const 2m          = 'countdown 120 3'
@@ -229,8 +233,7 @@ qrgen() {
     # Version: 1-40
     # Level  : low, medium, quartile, high
 
-    # WARNING: Change the path to the script.
-    python3 /path/to/scripts/qrgen.py $1 $2 $3
+    python3 $DIR/scripts/qrgen.py $1 $2 $3
 }
 
 f() {
