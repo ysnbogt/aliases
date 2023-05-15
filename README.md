@@ -31,8 +31,8 @@
 | `ccpng()`     | Make the code into an image and then copy it to the clipboard.                   |
 | `snake()`     | Snake case a string and copy it to the clipboard                                 |
 | `camel()`     | CamelCase a string and copy it to the clipboard                                  |
-| `countdown()` | Countdown for specified time. `Ctrl+C` to stop.                                  |
-| `stopwatch()` | Stopwatch. `Ctrl+C` to stop.                                                     |
+| `countdown()` | Countdown for specified time. <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop.            |
+| `stopwatch()` | Stopwatch. <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop.                               |
 | `todayf()`    | Create a file with today's date.                                                 |
 | `color()`     | Display colors in the console. Text color is the opposite of the specified color |
 | `today()`     | Display today's date.                                                            |
