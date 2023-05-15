@@ -291,3 +291,82 @@ f() {
     cat $tmpfile
     rm $tmpfile
 }
+
+endpoint() {
+    # Script to create a markdown endpoint summary from a file directly under `src/pages/api`
+
+    # ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────────────╮
+    # ├───────────────────────────────────────────────────────────────────────────────────────────┤
+    # │ $ endpoint <path> [output-format] [code-type]                                             │
+    # │ $ endpoint path/to/project                                                                │
+    # │ $ endpoint path/to/project code curl                                                      │
+    # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
+    # Options
+    #     ○ Output format            ○ Code type
+    #        □ list(default)            □ httpie(default)
+    #        □ code                     □ curl
+
+    # ▽ src               ╭─ Zsh ─────────────────────────────────────────────────────────────────╮
+    #   ▽ pages           ├───────────────────────────────────────────────────────────────────────┤
+    #     ▽ api           │ $ endpoint path/to/project                                            │
+    #     │ ▷ products    │ - [users](http://localhost:3000/api/users)                            │
+    #     │ ▷ posts       │ - [users/:id](http://localhost:3000/api/users/:id)                    │
+    #     │ ▽ users       │ - [search](http://localhost:3000/api/search)                          │
+    #     │ │  [id].ts    │ ...                                                                   │
+    #     │ │  index.ts   │ $ endpoint path/to/project > README.md                                │
+    #     │  search.ts    ╰───────────────────────────────────────────────────────────────────────╯
+
+    # ╭─ Markdown ─ README.md ────────────────────────────────────────────────────────────────────╮
+    # ├───────────────────────────────────────────────────────────────────────────────────────────┤
+    # │ - [users](http://localhost:3000/api/users)                                                │
+    # │ - [users/:id](http://localhost:3000/api/users/:id)                                        │
+    # │ - [search](http://localhost:3000/api/search)                                              │
+    # │ ...                                                                                       │
+    # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
+    convert_to_absolute_path() {
+        local path="$1"
+        if [[ ! "$path" = /* ]]; then
+            path="$(pwd)/$path"
+        fi
+        echo "$path"
+    }
+
+    escape_slashes() {
+        local path="$1"
+        path="${path//\//\\/}"
+        echo "$path"
+    }
+
+    absolute_path=$(convert_to_absolute_path "$1")
+    escaped_path=$(escape_slashes "$absolute_path")
+
+    EXTENSION='ts'
+    EXTENSION_PATTERN="s/\.$EXTENSION//g"
+    LIST_PATTERN='s/^(.+api\/)(.+)/- [`\2`](\1\2)/g'
+    CODE_CURL_PATTERN='s/^(.+api\/)(.+)/\n**`\2`**\n\n```\ncurl \1\2\n```/g'
+    CODE_HTTPIE_PATTERN='s/^(.+api\/)(.+)/\n**`\2`**\n\n```\nhttp \1\2\n```/g'
+
+    files=$(find $absolute_path/src/pages/api -type f)
+
+    for file in $files; do
+        endpoints=$(echo $file \
+        | sed -r 's/(.+)\[(.+)\].ts/\1:\2/' \
+        | sed -r "s/$escaped_path\/src\/pages/http:\/\/localhost:3000/" \
+        | sed -r 's/\/index//' \
+        | sed -r $EXTENSION_PATTERN)
+
+        if [ "$2" = "code" ]; then
+            if [ "$3" = "curl" ]; then
+                endpoints=$(echo "$endpoints" | sed -r "$CODE_CURL_PATTERN")
+            else
+                endpoints=$(echo "$endpoints" | sed -r "$CODE_HTTPIE_PATTERN")
+            fi
+        else
+            endpoints=$(echo "$endpoints" | sed -r "$LIST_PATTERN")
+        fi
+
+        echo $endpoints
+    done
+}
