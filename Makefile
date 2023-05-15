@@ -1,4 +1,8 @@
 docs:
-	@awk -f ./docsgen.awk ./aliases.sh > README.md
+	@awk -f ./docsgen.awk ./aliases.sh > README.md \
+	&& make format
 
-.PHONY: docs
+format:
+	@npx prettier --loglevel silent --write .
+
+.PHONY: docs format
