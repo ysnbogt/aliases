@@ -275,6 +275,9 @@ f() {
         "js")
             npx prettier --loglevel silent --write $tmpfile
             ;;
+        "md")
+            npx prettier --loglevel silent --write $tmpfile
+            ;;
         "py")
             black -q $tmpfile
             ;;
