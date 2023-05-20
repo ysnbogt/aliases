@@ -215,6 +215,18 @@ todayf() {
     touch $(date "+%Y-%m-%d").$1
 }
 
+cattoday() {
+    # Display the contents of the file with today's date.
+
+    # ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────────────╮
+    # ├───────────────────────────────────────────────────────────────────────────────────────────┤
+    # │ $ cattoday <file-extension>                                                               │
+    # │ $ cattoday md                                                                             │
+    # │ $ cattoday py                                                                             │
+    # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+    cat $(date "+%Y-%m-%d").$1
+}
+
 color() {
     # Display colors in the console. Text color is the opposite of the specified color
 
