@@ -34,6 +34,7 @@
 | `countdown()` | Countdown for specified time. <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop.                   |
 | `stopwatch()` | Stopwatch. <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop.                                      |
 | `todayf()`    | Create a file with today's date.                                                        |
+| `cattoday()`  | Display the contents of the file with today's date.                                     |
 | `color()`     | Display colors in the console. Text color is the opposite of the specified color        |
 | `today()`     | Display today's date.                                                                   |
 | `qrgen()`     | Generate a QR code and display it in the console.                                       |
