@@ -418,3 +418,48 @@ endpoint() {
         echo $endpoints
     done
 }
+
+watt() {
+    # Watt conversion
+
+    # ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────────────╮
+    # ├───────────────────────────────────────────────────────────────────────────────────────────┤
+    # │ $ watt <from> XmYs <to>                                                                   │
+    # │ $ watt 500 3m30s 600                                                                      │
+    # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
+    if [ $# -ne 3 ]
+    then
+        echo "Usage: $0 <current watt> <duration> <new watt>"
+        exit 1
+    fi
+
+    current_watt=$1
+    duration=$2
+    new_watt=$3
+
+    if ! [[ "$current_watt" =~ ^[0-9]+$ ]] || ! [[ "$new_watt" =~ ^[0-9]+$ ]]
+    then
+        echo "Error: Wattage must be a number"
+        exit 2
+    fi
+
+    if ! [[ "$duration" =~ ^[0-9]+m[0-9]+s$ ]]
+    then
+        echo "Error: Duration must be in the format XmYs (e.g., 3m30s)"
+        exit 3
+    fi
+
+    minutes=$(echo $duration | cut -d 'm' -f 1)
+    seconds=$(echo $duration | cut -d 's' -f 1 | cut -d 'm' -f 2)
+    total_seconds=$((minutes*60 + seconds))
+
+    power_seconds=$(echo "$current_watt * $total_seconds" | bc)
+
+    new_seconds=$(echo "scale=2; $power_seconds / $new_watt" | bc)
+
+    new_minutes=$(echo "scale=0; $new_seconds / 60" | bc)
+    new_seconds=$(echo "scale=0; $new_seconds % 60" | bc)
+
+    echo "${new_minutes}m${new_seconds}s"
+}

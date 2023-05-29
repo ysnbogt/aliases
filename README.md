@@ -40,3 +40,4 @@
 | `qrgen()`     | Generate a QR code and display it in the console.                                       |
 | `f()`         | Format the code and display it in the console.                                          |
 | `endpoint()`  | Script to create a markdown endpoint summary from a file directly under `src/pages/api` |
+| `watt()`      | Watt conversion                                                                         |
