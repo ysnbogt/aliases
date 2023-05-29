@@ -41,3 +41,8 @@
 | `f()`         | Format the code and display it in the console.                                          |
 | `endpoint()`  | Script to create a markdown endpoint summary from a file directly under `src/pages/api` |
 | `watt()`      | Watt conversion                                                                         |
+| `findf()`     | Find file                                                                               |
+| `findd()`     | Find directory                                                                          |
+| `fsize()`     | File size                                                                               |
+| `dsize()`     | Directory size                                                                          |
+| `backup()`    | Backup file                                                                             |

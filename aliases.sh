@@ -326,8 +326,17 @@ f() {
         "md")
             npx prettier --loglevel silent --write $tmpfile
             ;;
+        "json")
+            npx prettier --loglevel silent --write $tmpfile
+            ;;
         "py")
             black -q $tmpfile
+            ;;
+        "go")
+            gofmt -w $tmpfile
+            ;;
+        "rs")
+            rustfmt $tmpfile
             ;;
         *)
             echo "Unsupported file extension: .$extension"
@@ -466,4 +475,126 @@ watt() {
     new_seconds=$(echo "scale=0; $new_seconds % 60" | bc)
 
     echo "${new_minutes}m${new_seconds}s"
+}
+
+findf() {
+    # Find file
+
+    # ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────────────╮
+    # ├───────────────────────────────────────────────────────────────────────────────────────────┤
+    # │ $ findf <directory> <filename>                                                            │
+    # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
+    local search_dir="$1"
+    local filename="$2"
+
+    if [[ ! -d "$search_dir" ]]; then
+        echo "Error: Directory '$search_dir' not found."
+        return 1
+    fi
+
+    find "$search_dir" -name "$filename" 2>/dev/null
+}
+
+findd() {
+    # Find directory
+
+    # ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────────────╮
+    # ├───────────────────────────────────────────────────────────────────────────────────────────┤
+    # │ $ findd <directory> <dirname>                                                             │
+    # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
+    local search_dir="$1"
+    local dirname="$2"
+
+    if [[ ! -d "$search_dir" ]]; then
+        echo "Error: Directory '$search_dir' not found."
+        return 1
+    fi
+
+    find "$search_dir" -type d -name "$dirname" 2>/dev/null
+}
+
+fsize() {
+    # File size
+
+    # ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────────────╮
+    # ├───────────────────────────────────────────────────────────────────────────────────────────┤
+    # │ $ fsize <file>                                                                            │
+    # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
+    local file="$1"
+
+    if [[ ! -f "$file" ]]; then
+        echo "Error: File '$file' not found."
+        return 1
+    fi
+
+    local size=$(wc -c < "$file")
+
+    local unit="bytes"
+    if [[ $size -gt 1024 ]]; then
+        size=$(($size/1024))
+        unit="KB"
+    fi
+    if [[ $size -gt 1024 ]]; then
+        size=$(($size/1024))
+        unit="MB"
+    fi
+    if [[ $size -gt 1024 ]]; then
+        size=$(($size/1024))
+        unit="GB"
+    fi
+
+    echo "File size: $size $unit"
+}
+
+dsize() {
+    # Directory size
+
+    # ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────────────╮
+    # ├───────────────────────────────────────────────────────────────────────────────────────────┤
+    # │ $ dsize <directory>                                                                       │
+    # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
+    local directory="$1"
+
+    if [[ ! -d "$directory" ]]; then
+        echo "Error: Directory '$directory' not found."
+        return 1
+    fi
+
+    local size=$(du -sh "$directory" | awk '{print $1}')
+
+    echo "Directory size: $size"
+}
+
+backup() {
+    # Backup file
+
+    # ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────────────╮
+    # ├───────────────────────────────────────────────────────────────────────────────────────────┤
+    # │ $ backup <file> <destination>                                                             │
+    # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
+    local file="$1"
+    local destination="$2"
+
+    if [[ ! -f "$file" ]]; then
+        echo "Error: File '$file' not found."
+        return 1
+    fi
+
+    if [[ ! -d "$destination" ]]; then
+        echo "Error: Destination directory '$destination' not found."
+        return 1
+    fi
+
+    local filename=$(basename "$file")
+    local timestamp=$(date +"%Y%m%d%H%M%S")
+    local backup_file="${filename}.${timestamp}"
+
+    cp "$file" "$destination/$backup_file"
+
+    echo "Backup created: $destination/$backup_file"
 }
