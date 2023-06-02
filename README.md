@@ -5,6 +5,7 @@
 | `c`           | `'code .'`                                                                              |
 | `o`           | `'open .'`                                                                              |
 | `p`           | `'pbcopy'`                                                                              |
+| `m`           | `'make'`                                                                                |
 | `cdd`         | `'cd ~/Desktop'`                                                                        |
 | `cdtoday`     | `'cd $(date "+%Y-%m-%d")'`                                                              |
 | `todayd`      | `'mkdir $(date "+%Y-%m-%d")'`                                                           |
