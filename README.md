@@ -18,6 +18,7 @@
 | `rmi-all`     | `'docker rmi $(docker images -q)'`                                                      |
 | `pangram`     | `'echo "The quick brown fox jumps over the lazy dog" \| pbcopy'`                        |
 | `lorem-ipsum` | `"echo '$lorem_ipsum' \| pbcopy"`                                                       |
+| `now`         | `'echo -e $(date "+%Y-%m-%d %H:%M:%S") \| pbcopy'`                                      |
 | `vsc-black`   | `"cat $DIR/templates/vscode/black.json \| pbcopy"`                                      |
 | `1m`          | `'countdown 60 3'`                                                                      |
 | `2m`          | `'countdown 120 3'`                                                                     |

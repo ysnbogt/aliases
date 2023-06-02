@@ -53,6 +53,7 @@ const rmi-all     = 'docker rmi $(docker images -q)'
 # ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 const pangram     = 'echo "The quick brown fox jumps over the lazy dog" | pbcopy'
 const lorem-ipsum = "echo '$lorem_ipsum' | pbcopy"
+const now         = 'echo -e $(date "+%Y-%m-%d %H:%M:%S") | pbcopy'
 
 # ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
 # ░▒▓│ cat               │▓▒░
