@@ -612,10 +612,5 @@ clonecd() {
     destination_directory=${3:-$repository_name}
 
     git clone "https://github.com/$username/$repository_name" "$destination_directory"
-
-    if [[ -n "$destination_directory" ]]; then
-        cd "$destination_directory"
-    else
-        cd "$repository_name"
-    fi
+    cd "$destination_directory"
 }
