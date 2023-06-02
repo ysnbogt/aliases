@@ -46,3 +46,4 @@
 | `fsize()`     | File size                                                                               |
 | `dsize()`     | Directory size                                                                          |
 | `backup()`    | Backup file                                                                             |
+| `clonecd()`   | Clone repository and cd into it                                                         |

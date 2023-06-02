@@ -592,3 +592,30 @@ backup() {
 
     echo "Backup created: $destination/$backup_file"
 }
+
+clonecd() {
+    # Clone repository and cd into it
+
+    # ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────────────╮
+    # ├───────────────────────────────────────────────────────────────────────────────────────────┤
+    # │ $ clonecd <username> <repository-name> [destination-directory]                            │
+    # │ $ clonecd ysnbogt aliases                                                                 │
+    # │ $ pwd                                                                                     │
+    # │ /path/to/aliases                                                                          │
+    # │ $ clonecd ysnbogt sveltekit-t3-app-template my-app                                        │
+    # │ $ pwd                                                                                     │
+    # │ /path/to/my-app                                                                           │
+    # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
+    username=$1
+    repository_name=$2
+    destination_directory=${3:-$repository_name}
+
+    git clone "https://github.com/$username/$repository_name" "$destination_directory"
+
+    if [[ -n "$destination_directory" ]]; then
+        cd "$destination_directory"
+    else
+        cd "$repository_name"
+    fi
+}
