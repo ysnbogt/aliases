@@ -314,16 +314,16 @@ f() {
     # TODO: Add any extensions and commands you like.
     case $extension in
         "ts")
-            npx prettier --loglevel silent --write $tmpfile
+            npx prettier --log-level silent --write $tmpfile
             ;;
         "js")
-            npx prettier --loglevel silent --write $tmpfile
+            npx prettier --log-level silent --write $tmpfile
             ;;
         "md")
-            npx prettier --loglevel silent --write $tmpfile
+            npx prettier --log-level silent --write $tmpfile
             ;;
         "json")
-            npx prettier --loglevel silent --write $tmpfile
+            npx prettier --log-level silent --write $tmpfile
             ;;
         "py")
             black -q $tmpfile
