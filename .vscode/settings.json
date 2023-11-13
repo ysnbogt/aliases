@@ -1,6 +1,5 @@
 {
-  "editor.fontFamily": "Courier",
-  "editor.fontSize": 13,
+  "editor.tabSize": 2,
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnSave": true,
