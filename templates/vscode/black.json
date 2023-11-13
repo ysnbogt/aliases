@@ -1,6 +1,5 @@
 {
-  "editor.fontFamily": "Courier",
-  "editor.fontSize": 13,
+  "editor.tabSize": 2,
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnSave": true,
@@ -8,7 +7,7 @@
   },
   "editor.detectIndentation": false,
   "editor.formatOnSave": true,
-  "cSpell.words": ["qrcode"],
+  "cSpell.words": ["qrcode", "qrgen", "esbenp"],
   "[json][jsonc]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
