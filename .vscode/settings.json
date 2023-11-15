@@ -1,4 +1,7 @@
 {
+  "editor.fontSize": 12,
+  "editor.fontFamily": "'Monaspace Krypton', monospace",
+  "editor.fontLigatures": "'liga', 'dlig', 'ss01', 'ss02'",
   "editor.tabSize": 2,
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
