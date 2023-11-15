@@ -17,7 +17,7 @@ lorem_ipsum='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu
 # ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
 # ░▒▓│ single letter     │▓▒░
 # ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
-const c           = 'code .'
+const c           = 'cursor .'
 const o           = 'open .'
 const p           = 'pbcopy'
 const m           = 'make'
