@@ -59,6 +59,8 @@ if [ ! -e ~/.ssh ]; then
   chmod 700 ~/.ssh
 fi
 
+cd ~/.ssh
+
 # Enter account name
 echo -n "Account Name: "
 read account_name
