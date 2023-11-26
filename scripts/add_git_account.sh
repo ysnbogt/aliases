@@ -88,3 +88,47 @@ echo
 echo -e "\e[93m   git clone git@github.com:<username>/<repository>\e[0m"
 echo
 echo -e "\e[34mReplace \e[93m<username>\e[34m with your GitHub username and \e[93m<repository>\e[34m with the repository name.\e[0m"
+
+# ╭─ zsh ──────────────────────────────────────────────────────────────────────────────────────────╮
+# ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+# │ $ source add_git_account.sh                                                                    │
+# │ Account Name: user                                                                             │
+# │ Password: spawn ssh-keygen -t rsa -f user                                                      │
+# │ Generating public/private rsa key pair.                                                        │
+# │ Enter passphrase (empty for no passphrase):                                                    │
+# │ Enter same passphrase again:                                                                   │
+# │ Your identification has been saved in user                                                     │
+# │ Your public key has been saved in user.pub                                                     │
+# │ The key fingerprint is:                                                                        │
+# │ SHA256:******************************************* user@user.local                             │
+# │ The key's randomart image is:                                                                  │
+# │ +---[RSA 3072]----+                                                                            │
+# │ |                 |                                                                            │
+# │ |                 |                                                                            │
+# │ |                 |                                                                            │
+# │ |                 |                                                                            │
+# │ |                 |                                                                            │
+# │ |                 |                                                                            │
+# │ |                 |                                                                            │
+# │ |                 |                                                                            │
+# │ |                 |                                                                            │
+# │ +----[SHA256]-----+                                                                            │
+# │ \spawn ssh-add user                                                                            │
+# │ Identity added: user (user@user.local)                                                         │
+# │ SSH key setup is complete. Next steps:                                                         │
+# │                                                                                                │
+# │ 1. Navigate to [SSH and GPG keys](https://github.com/settings/keys) in your GitHub settings.   │
+# │                                                                                                │
+# │ Do you want to open the GitHub SSH and GPG keys page in your browser?                          │
+# │ Enter your choice [Y/n]: Y                                                                     │
+# │                                                                                                │
+# │ 2. Click on **New SSH Key**.                                                                   │
+# │ 3. In the 'Title' field, enter a descriptive name for your new key.                            │
+# │ 4. For 'Key', paste the SSH key you just copied. It's already in your clipboard.               │
+# │ 5. Click on **Add SSH Key**.                                                                   │
+# │ 6. Now, you can clone repositories using SSH. For example:                                     │
+# │                                                                                                │
+# │    git clone git@github.com:<username>/<repository>                                            │
+# │                                                                                                │
+# │ Replace <username> with your GitHub username and <repository> with the repository name.        │
+# ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
