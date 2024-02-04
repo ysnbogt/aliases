@@ -616,3 +616,25 @@ clonecd() {
     git clone "https://github.com/$username/$repository_name" "$destination_directory"
     cd "$destination_directory"
 }
+
+function emmet() {
+  echo $1 | sed -E 's/^ *//' | tr -d '\n' | command emmet | sed -r "s/\t/  /g"
+}
+
+function table() {
+  col=$1
+  row=$2
+
+  emmet "
+  table
+    >thead
+      >tr
+        >th[align=center]*$col
+          >b
+        ^
+      ^
+    ^tbody>
+      tr*$row>
+        td*$col
+  "
+}
