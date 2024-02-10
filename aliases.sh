@@ -126,13 +126,14 @@ countdown() {
   # Play as many notes as the number of the second argument.
   if [ $# -eq 2 ]; then
     for i in $(seq 1 $2); do
-      # ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────╮
-      # ├───────────────────────────────────────────────────────────────────────────────────┤
-      # │ $ ls /System/Library/Sounds                                                       │
-      # │ Basso.aiff     Frog.aiff      Hero.aiff      Pop.aiff       Submarine.aiff        │
-      # │ Blow.aiff      Funk.aiff      Morse.aiff     Purr.aiff      Tink.aiff             │
-      # │ Bottle.aiff    Glass.aiff     Ping.aiff      Sosumi.aiff                          │
-      # ╰───────────────────────────────────────────────────────────────────────────────────╯
+      # ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────────╮
+      # ├───────────────────────────────────────────────────────────────────────────────────────┤
+      # │ $ ls /System/Library/Sounds                                                           │
+      # │ Basso.aiff     Frog.aiff      Hero.aiff      Pop.aiff       Submarine.aiff            │
+      # │ Blow.aiff      Funk.aiff      Morse.aiff     Purr.aiff      Tink.aiff                 │
+      # │ Bottle.aiff    Glass.aiff     Ping.aiff      Sosumi.aiff                              │
+      # ╰───────────────────────────────────────────────────────────────────────────────────────╯
+
 
       # Of course, original audio files can be specified.
       afplay /System/Library/Sounds/Funk.aiff
