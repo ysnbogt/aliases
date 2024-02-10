@@ -450,3 +450,7 @@ table() {
         td*$col
   "
 }
+
+gsa() {
+  git stash apply $(git stash list | grep $(git branch | grep '^*' | tr -d '* ') | sed 's/:.*//')
+}
