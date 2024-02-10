@@ -134,7 +134,6 @@ countdown() {
       # │ Bottle.aiff    Glass.aiff     Ping.aiff      Sosumi.aiff                              │
       # ╰───────────────────────────────────────────────────────────────────────────────────────╯
 
-
       # Of course, original audio files can be specified.
       afplay /System/Library/Sounds/Funk.aiff
     done
