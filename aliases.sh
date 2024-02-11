@@ -453,5 +453,7 @@ table() {
 }
 
 gsa() {
-  git stash apply $(git stash list | grep $(git branch | grep '^*' | tr -d '* ') | sed 's/:.*//')
+  current_branch=$(git branch | grep '^*' | tr -d '* ')
+  stash=$(git stash list | grep $current_branch | sed 's/:.*//')
+  git stash apply $stash
 }
