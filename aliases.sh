@@ -450,9 +450,9 @@ table() {
           >b
         ^
       ^
-    ^tbody>
-      tr*$row>
-        td*$col
+    ^tbody
+      >tr*$row
+        >td*$col
   "
 }
 
