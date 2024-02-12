@@ -3,6 +3,6 @@ docs:
 	&& make format
 
 format:
-	@npx prettier --loglevel silent --write .
+	@npx prettier --log-level silent --write .
 
 .PHONY: docs format

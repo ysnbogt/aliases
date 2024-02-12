@@ -26,6 +26,7 @@ BEGIN {
 /^[a-z]{1,}\(\) \{$/, /^\}$/ {
     if ($0 ~ /^\}$/) {
         sub(/`Ctrl\+C`/, "<kbd>Ctrl</kbd> + <kbd>C</kbd>", description);
+        gsub(/^.*# /, "", description);
         printf("| `%s()` | %s |\n", function_name, description);
         count = 0;
         next;
