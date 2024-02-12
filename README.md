@@ -2,6 +2,31 @@
 
 | Name          | Explanation or Command                                                                  |
 | ------------- | --------------------------------------------------------------------------------------- |
+| `c`           | `'cursor .'`                                                                            |
+| `o`           | `'open .'`                                                                              |
+| `p`           | `'pbcopy'`                                                                              |
+| `m`           | `'make'`                                                                                |
+| `cdd`         | `'cd ~/Desktop'`                                                                        |
+| `cdtoday`     | `'cd $(date "+%Y-%m-%d")'`                                                              |
+| `todayd`      | `'mkdir $(date "+%Y-%m-%d")'`                                                           |
+| `vsc`         | `'mkdir .vscode && touch .vscode/settings.json'`                                        |
+| `workflows`   | `'mkdir -p .github/workflows && touch .github/workflows/main.yml'`                      |
+| `readme`      | `'touch README.md'`                                                                     |
+| `makefile`    | `'touch Makefile'`                                                                      |
+| `stop-all`    | `'docker stop $(docker ps -q)'`                                                         |
+| `rm-all`      | `'docker rm $(docker ps -a -q)'`                                                        |
+| `rmi-all`     | `'docker rmi $(docker images -q)'`                                                      |
+| `pangram`     | `'echo "The quick brown fox jumps over the lazy dog" \| pbcopy'`                        |
+| `now`         | `'echo -e $(date "+%Y-%m-%d %H:%M:%S") \| pbcopy'`                                      |
+| `vsc-black`   | `"cat $DIR/templates/vscode/black.json \| pbcopy"`                                      |
+| `1m`          | `'countdown 60 3'`                                                                      |
+| `2m`          | `'countdown 120 3'`                                                                     |
+| `3m`          | `'countdown 180 3'`                                                                     |
+| `5m`          | `'countdown 300 3'`                                                                     |
+| `10m`         | `'countdown 600 3'`                                                                     |
+| `8080`        | `'open http://localhost:8080'`                                                          |
+| `3000`        | `'open http://localhost:3000'`                                                          |
+| `5173`        | `'open http://localhost:5173'`                                                          |
 | `jdiff()`     | Comparing Two JSON Files                                                                |
 | `ppng()`      | Copying an image to the clipboard                                                       |
 | `ccpng()`     | Make the code into an image and then copy it to the clipboard.                          |
