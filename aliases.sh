@@ -4,39 +4,39 @@ __() {
 
 DIR="$(dirname "$(readlink -f "$0")")"
 
-__  c            =  'cursor .'
-__  o            =  'open .'
-__  p            =  'pbcopy'
-__  m            =  'make'
+__  c          =  'cursor .'
+__  o          =  'open .'
+__  p          =  'pbcopy'
+__  m          =  'make'
 
-__  cdd          =  'cd ~/Desktop'
-__  cdtoday      =  'cd $(date "+%Y-%m-%d")'
+__  cdd        =  'cd ~/Desktop'
+__  cdtoday    =  'cd $(date "+%Y-%m-%d")'
 
-__  todayd       =  'mkdir $(date "+%Y-%m-%d")'
-__  vsc          =  'mkdir .vscode && touch .vscode/settings.json'
-__  workflows    =  'mkdir -p .github/workflows && touch .github/workflows/main.yml'
+__  todayd     =  'mkdir $(date "+%Y-%m-%d")'
+__  vsc        =  'mkdir .vscode && touch .vscode/settings.json'
+__  workflows  =  'mkdir -p .github/workflows && touch .github/workflows/main.yml'
 
-__  readme       =  'touch README.md'
-__  makefile     =  'touch Makefile'
+__  readme     =  'touch README.md'
+__  makefile   =  'touch Makefile'
 
-__  stop-all     =  'docker stop $(docker ps -q)'
-__  rm-all       =  'docker rm $(docker ps -a -q)'
-__  rmi-all      =  'docker rmi $(docker images -q)'
+__  stop-all   =  'docker stop $(docker ps -q)'
+__  rm-all     =  'docker rm $(docker ps -a -q)'
+__  rmi-all    =  'docker rmi $(docker images -q)'
 
-__  pangram      =  'echo "The quick brown fox jumps over the lazy dog" | pbcopy'
-__  now          =  'echo -e $(date "+%Y-%m-%d %H:%M:%S") | pbcopy'
+__  pangram    =  'echo "The quick brown fox jumps over the lazy dog" | pbcopy'
+__  now        =  'echo -e $(date "+%Y-%m-%d %H:%M:%S") | pbcopy'
 
-__  vsc-black    =  "cat $DIR/templates/vscode/black.json | pbcopy"
+__  vsc-black  =  "cat $DIR/templates/vscode/black.json | pbcopy"
 
-__  1m           =  'countdown 60 3'
-__  2m           =  'countdown 120 3'
-__  3m           =  'countdown 180 3'
-__  5m           =  'countdown 300 3'
-__  10m          =  'countdown 600 3'
+__  1m         =  'countdown 60 3'
+__  2m         =  'countdown 120 3'
+__  3m         =  'countdown 180 3'
+__  5m         =  'countdown 300 3'
+__  10m        =  'countdown 600 3'
 
-__  8080         =  'open http://localhost:8080'
-__  3000         =  'open http://localhost:3000'
-__  5173         =  'open http://localhost:5173'
+__  8080       =  'open http://localhost:8080'
+__  3000       =  'open http://localhost:3000'
+__  5173       =  'open http://localhost:5173'
 
 
 jdiff() {
