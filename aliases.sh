@@ -503,3 +503,42 @@ help() {
       printf(\"\n\");
     }"
 }
+
+ddiff() {
+  # The difference in a specific file between the default branch and the current branch
+
+  # ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────────────╮
+  # ├───────────────────────────────────────────────────────────────────────────────────────────┤
+  # │ $ ddiff <file-path>                                                                       │
+  # | $ ddiff src/index.ts                                                                      │
+  # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
+  default_branch=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+  current_branch=$(git branch | grep '^*' | tr -d '* ')
+  git diff $default_branch..$current_branch -- $1
+}
+
+openpr() {
+  # Open Pull Request
+
+  # ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────────────╮
+  # ├───────────────────────────────────────────────────────────────────────────────────────────┤
+  # │ $ openpr <comit-hash>                                                                     │
+  # | $ openpr a1b2c3d                                                                          │
+  # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
+  commit_hash=$1
+  remote_name=${2:-origin}
+  default_branch=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+  pr_path=$(
+    git log --merges --oneline --reverse --ancestry-path $commit_hash...$default_branch \
+    | grep 'Merge pull request #' \
+    | head -n 1 \
+    | cut -f5 -d' ' \
+    | sed -e 's%#%pull/%'
+  )
+
+  owner=$(git remote -v | grep "^$remote_name" | grep '(fetch)' | sed -r 's/.*:([^\/]+)\/.*/\1/')
+  repository=$(basename `pwd`)
+  open "https://github.com/$owner/$repository/$pr_path"
+}

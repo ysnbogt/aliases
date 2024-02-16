@@ -45,3 +45,5 @@
 | `table()`     | HTML table                                                                              |
 | `gsa()`       | Apply the stash of the current branch                                                   |
 | `help()`      | Display how to use custom aliases                                                       |
+| `ddiff()`     | The difference in a specific file between the default branch and the current branch     |
+| `openpr()`    | Open Pull Request                                                                       |
