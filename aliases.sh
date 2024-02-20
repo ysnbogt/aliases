@@ -47,6 +47,7 @@ jdiff() {
   # │ $ jdiff <first-file> <second-file>                                                        │
   # │ $ jdiff a.json b.json                                                                     │
   # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
   diff <(jq --sort-keys . $1) <(jq --sort-keys . $2)
 }
 
@@ -58,6 +59,7 @@ ppng() {
   # │ $ ppng <image-path>                                                                       │
   # │ $ ppng image.png                                                                          │
   # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
   osascript -e 'set the clipboard to (read (POSIX file "'$1'") as JPEG picture)'
 }
 
@@ -70,6 +72,7 @@ ccpng() {
   # │ $ ccpng <file>                                                                            │
   # │ $ ccpng main.py                                                                           │
   # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
   silicon $1 -o $1.tmp.png \
   && osascript -e 'set the clipboard to (read (POSIX file "'$1.tmp.png'") as JPEG picture)' \
   && rm $1.tmp.png
@@ -83,6 +86,7 @@ snake() {
   # │ $ snake <word>                                                                            │
   # │ $ snake "Hello World"  # hello_world                                                      │
   # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
   python3 -c 'import sys; print("_".join(sys.argv[1].lower().split(" ")), end="")' $1 | pbcopy
 }
 
@@ -94,6 +98,7 @@ camel() {
   # │ $ camel <word>                                                                            │
   # │ $ camel "Hello World"  # HelloWorld                                                       │
   # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
   python3 -c 'import sys; print("".join(sys.argv[1].title().split(" ")), end="")' $1 | pbcopy
 }
 
@@ -106,6 +111,7 @@ countdown() {
   # │ $ countdown 60   # One minute later, no sound and exit.                                   │
   # │ $ countdown 5 1  # After 5 seconds, one sound and exit.                                   │
   # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
   countdown_seconds=$1
   start_time=$(date +%s)
   end_time=$((start_time + countdown_seconds))
@@ -136,8 +142,8 @@ countdown() {
       # │ Blow.aiff      Funk.aiff      Morse.aiff     Purr.aiff      Tink.aiff                 │
       # │ Bottle.aiff    Glass.aiff     Ping.aiff      Sosumi.aiff                              │
       # ╰───────────────────────────────────────────────────────────────────────────────────────╯
-
       # Of course, original audio files can be specified.
+
       afplay /System/Library/Sounds/Funk.aiff
     done
   fi
@@ -150,6 +156,7 @@ stopwatch() {
   # ├───────────────────────────────────────────────────────────────────────────────────────────┤
   # │ $ stopwatch                                                                               │
   # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
   start_time=$(date +%s)
   seconds=0
   minutes=0
@@ -175,6 +182,7 @@ todayf() {
   # │ $ todayf md                                                                               │
   # │ $ todayf py                                                                               │
   # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
   touch $(date "+%Y-%m-%d").$1
 }
 
@@ -187,6 +195,7 @@ cattoday() {
   # │ $ cattoday md                                                                             │
   # │ $ cattoday py                                                                             │
   # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
   cat $(date "+%Y-%m-%d").$1
 }
 
@@ -200,6 +209,7 @@ color() {
   # │ $ color FF0000  # Red                                                                     │
   # │ $ color 0000FF  # Blue                                                                    │
   # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
   perl -e '
   foreach $a(@ARGV) {
     my($r, $g, $b) = unpack("C*", pack("H*", $a));
@@ -222,6 +232,7 @@ today() {
   # │ $ today '-'  # 2023-05-01                                                                 │
   # │ $ today '/'  # 2023/05/01                                                                 │
   # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
   if [ $# -eq 1 ]; then
     delimiter=$1
   else
@@ -240,7 +251,6 @@ qrgen() {
   # │ $ qrgen <text> [version] [level]                                                          │
   # │ $ qrgen https://github.com/ysnbogt 1 low                                                  │
   # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
-
   # Version: 1-40
   # Level  : low, medium, quartile, high
 
@@ -485,6 +495,7 @@ help() {
   # │    ╰─────────────────────────────────────────────────────────────────────────────────╯    │
   # │                                                                                           │
   # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
   custom_aliase=$1
 
   cat $DIR/aliases.sh | awk "
@@ -541,4 +552,24 @@ openpr() {
   owner=$(git remote -v | grep "^$remote_name" | grep '(fetch)' | sed -r 's/.*:([^\/]+)\/.*/\1/')
   repository=$(basename `pwd`)
   open "https://github.com/$owner/$repository/$pr_path"
+}
+
+call() {
+  # Call function
+
+  # ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────────────╮
+  # ├───────────────────────────────────────────────────────────────────────────────────────────┤
+  # │ $ call <absolute-path> <function-name>                                                    │
+  # | $ call $HOME/foo foo                                                                      │
+  # ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
+  local target_directory=$1
+  local function_name=$2
+
+  [[ $PWD == $target_directory* ]] && {
+    eval "$function_name"
+  }
+}
+
+chpwd() {
 }
