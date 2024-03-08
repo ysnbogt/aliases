@@ -11,6 +11,9 @@
 #   │   - [x] Check item 1                                                                      │
 #   │   - [x] Check item 2                                                                      │
 #   │                                                                                           │
+#   │   https://github.com/owner/repository/pull/3                                              │
+#   │   ...                                                                                     │
+#   │                                                                                           │
 #   │ $ tmp ./src/index.js upstream                                                             │
 #   │   ...                                                                                     │
 #   ╰───────────────────────────────────────────────────────────────────────────────────────────╯
