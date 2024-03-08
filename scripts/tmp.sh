@@ -6,16 +6,16 @@
 #   ├───────────────────────────────────────────────────────────────────────────────────────────┤
 #   │ $ tmp <file-path> [remote-name]                                                           │
 #   │ $ tmp ./src/index.js                                                                      │
-#   │   https://github.com/owner/repository/pull/2                                              │
+#   │ https://github.com/owner/repository/pull/2                                                │
 #   │                                                                                           │
-#   │   - [x] Check item 1                                                                      │
-#   │   - [x] Check item 2                                                                      │
+#   │ - [x] Check item 1                                                                        │
+#   │ - [x] Check item 2                                                                        │
 #   │                                                                                           │
-#   │   https://github.com/owner/repository/pull/3                                              │
-#   │   ...                                                                                     │
+#   │ https://github.com/owner/repository/pull/3                                                │
+#   │ ...                                                                                       │
 #   │                                                                                           │
 #   │ $ tmp ./src/index.js upstream                                                             │
-#   │   ...                                                                                     │
+#   │ ...                                                                                       │
 #   ╰───────────────────────────────────────────────────────────────────────────────────────────╯
 #
 #   ╭─ Markdown ─ https://github.com/owner/repository/pull/2 ───────────────────────────────────╮
