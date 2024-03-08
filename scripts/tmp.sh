@@ -6,13 +6,34 @@
 #   ├───────────────────────────────────────────────────────────────────────────────────────────┤
 #   │ $ tmp <file-path> [remote-name]                                                           │
 #   │ $ tmp ./src/index.js                                                                      │
-#   │   https://github.com/owner/repository/pull/1                                              │
+#   │   https://github.com/owner/repository/pull/2                                              │
 #   │                                                                                           │
 #   │   - [x] Check item 1                                                                      │
 #   │   - [x] Check item 2                                                                      │
 #   │                                                                                           │
 #   │ $ tmp ./src/index.js upstream                                                             │
 #   │   ...                                                                                     │
+#   ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+#
+#   ╭─ Markdown ─ https://github.com/owner/repository/pull/2 ───────────────────────────────────╮
+#   ├───────────────────────────────────────────────────────────────────────────────────────────┤
+#   │ ## Summary                                                                                │
+#   │                                                                                           │
+#   │ Feature description                                                                       │
+#   │                                                                                           │
+#   │ ## Why this pull request                                                                  │
+#   │                                                                                           │
+#   │ - https://github.com/owner/repository/issue/2                                             │
+#   │                                                                                           │
+#   │ ## Operation check method                                                                 │
+#   │                                                                                           │
+#   │ - [x] Check item 1                                                                        │
+#   │ - [x] Check item 2                                                                        │
+#   │                                                                                           │
+#   │ ## Related pull requests                                                                  │
+#   │                                                                                           │
+#   │ - https://github.com/owner/repository/pull/1                                              │
+#   │ ...                                                                                       │
 #   ╰───────────────────────────────────────────────────────────────────────────────────────────╯
 
 header=2
