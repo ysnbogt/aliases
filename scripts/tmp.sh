@@ -1,4 +1,19 @@
-# Script to display a specific section of a previous PR associated with a file
+# Description:
+#   Script to display a specific section of a previous PR associated with a file
+#
+# Example:
+#   ╭─ Zsh ─────────────────────────────────────────────────────────────────────────────────────╮
+#   ├───────────────────────────────────────────────────────────────────────────────────────────┤
+#   │ $ tmp <file-path> [remote-name]                                                           │
+#   │ $ tmp ./src/index.js                                                                      │
+#   │   https://github.com/owner/repository/pull/1                                              │
+#   │                                                                                           │
+#   │   - [x] Check item 1                                                                      │
+#   │   - [x] Check item 2                                                                      │
+#   │                                                                                           │
+#   │ $ tmp ./src/index.js upstream                                                             │
+#   │   ...                                                                                     │
+#   ╰───────────────────────────────────────────────────────────────────────────────────────────╯
 
 header=2
 title="Operation check method"
