@@ -19,7 +19,7 @@ function is_module_exported(module_name) {
   }
 }
 
-/^import( type)? \* as [a-zA-Z0-9]+ from "\.\/[a-zA-Z0-9-]+"/ {
+/^import( type)? \* as .+ from "\.\/.+"/ {
   # If only the type is read, the format is aligned to simplify processing
   sub(" type", "", $0);
 
