@@ -6,7 +6,9 @@
 #   ├───────────────────────────────────────────────────────────────────────────────────────────┤
 #   │ $ find <target-directory-path> -type f -name <target-file-name> \                         │
 #   │   | xargs -I {} sh -c 'awk -f <script-path> {}'                                           │
-#   │ $ find ./src -type f -name "index.ts" | xargs -I {} sh -c 'awk -f ./main.awk {}'          │
+#   │ $ find ./src -type f -name "index.ts" \                                                   │
+#   │   | xargs -I {} sh -c 'awk -f ./main.awk {}' \                                            │
+#   │   | xargs -I {} open {} -a "Visual Studio Code"                                           │
 #   ╰───────────────────────────────────────────────────────────────────────────────────────────╯
 
 # Exit if module is included
